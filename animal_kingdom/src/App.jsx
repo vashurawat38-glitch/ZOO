@@ -6,7 +6,7 @@ import Stats from "./pages/Stats";
 import FAQ from "./pages/FAQ";
 import Tickets from "./pages/Tickets";
 import Contact from "./pages/Contact";
-import Footer from "./pages/Footer";
+import Footer from "./pages/Footer"; 
 import Map from "./pages/Map";
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
       <Testimonials />
       <Stats />
       <FAQ />
-      <Map />        {/* ✅ New Map Section */}
+      <Map />      
       <Tickets />
       <Contact />
       <Footer />
