@@ -1,45 +1,42 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const Ticket = require("./models/Ticket");
+const Ticket = require("./Models/Ticket"); 
 
 const app = express();
 
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.use(cors()); // CORS allow karne ke liye
-app.use(express.json()); // JSON data parse karne ke liye
-app.use(express.urlencoded({ extended: true })); // Form data handle karne ke liye
+//  MongoDB Atlas connection
+mongoose.connect("mongodb://127.0.0.1:27017/zoo_databse")
+  .then(() => console.log("✅ MongoDB Atlas se connect ho gaya!"))
+  .catch(err => console.error("❌ Connection Error:", err));
 
-// MongoDB Atlas Connection
-const dbURI = "mongodb+srv://vashurawat24_db_user:rawat124@cluster0.nmm9r9b.mongodb.net/?appName=Cluster0"
-mongoose.connect(dbURI)
-.then(() => console.log("✅ MongoDB Atlas se connect ho gaya!"))
-.catch((err) => console.error("❌ Connection Error:", err));
-
-//  Ticket booking Route
+//  POST route with try/catch
 app.post("/api/tickets", async (req, res) => {
   try {
-    console.log("Frontend data agya:", req.body); // Debugging ke liye
+    console.log("🔥 Frontend se data aagya :", req.body);
     const newTicket = new Ticket(req.body);
     await newTicket.save();
     res.json({ message: `Ticket booked for ${req.body.name} on ${req.body.date}` });
   } catch (err) {
-    console.error("Error saving ticket:", err);
-    res.status(500).json({ error: "Server error" });
+    console.error("❌ Error saving ticket:", err);
+    res.status(500).json({ error: "Server error while booking ticket" });
   }
 });
 
-// Get all tickets Route
+// GET route with try/catch..
 app.get("/api/tickets", async (req, res) => {
   try {
     const tickets = await Ticket.find();
     res.json(tickets);
   } catch (err) {
-    console.error(" Error fetching tickets:", err);
-    res.status(500).json({ error: "Server error" });
+    console.error("❌ Error fetching tickets:", err);
+    res.status(500).json({ error: "Server error while fetching tickets" });
   }
 });
 
-// ✅ Start server
-const PORT = 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+// Start server.........
+app.listen(5000, () => console.log("🚀 Server running on port 5000"));

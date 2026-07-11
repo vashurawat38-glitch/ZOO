@@ -1,11 +1,20 @@
 const mongoose = require("mongoose");
 
-//  Ticket schema define krnaa
+// Ticket Schema
 const ticketSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  date: String,
-});
+  name: {
+    type: String,
+    required: true,   // name must be provided
+  },
+  email: {
+    type: String,
+    required: true,   // email 
+  },
+  date: {
+    type: String,
+    required: true,  
+  }
+}, { timestamps: true }); // automatically adds createdAt & updatedAt
 
-//  Export model
+// Export Model
 module.exports = mongoose.model("Ticket", ticketSchema);

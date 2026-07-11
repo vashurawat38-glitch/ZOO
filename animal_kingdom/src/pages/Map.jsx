@@ -8,13 +8,13 @@ function Map() {
       {/* Zoo Layout Image */}
       <div className="w-full max-w-4xl overflow-hidden rounded-lg shadow-lg">
         <img 
-          src="/images/zoo-map.jpg"   // ✅ apna dummy map image yaha rakho
+          src="/images/zoo-map.jpg"  
           alt="Zoo Map" 
           className="w-full h-auto object-contain"
         />
       </div>
 
-      {/* Dummy Google Map Embed */}
+      {/* Dummy Google Map */}
       <div className="mt-8 w-full max-w-4xl">
         <iframe
   title="Chhatbir Zoo Chandigarh"
