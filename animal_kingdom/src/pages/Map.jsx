@@ -8,7 +8,7 @@ function Map() {
       {/* Zoo Layout Image */}
       <div className="w-full max-w-4xl overflow-hidden rounded-lg shadow-lg">
         <img 
-          src="/images/zoo-map.jpg"  
+          src="/zoo-map.jpg"  
           alt="Zoo Map" 
           className="w-full h-auto object-contain"
         />
