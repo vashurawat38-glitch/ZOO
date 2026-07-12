@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //  MongoDB Atlas connection
-mongoose.connect("mongodb://127.0.0.1:27017/zoo_databse")
+mongoose.connect("mongodb+srv://vashurawat24_db_user:rawat100@cluster0.nmm9r9b.mongodb.net/?appName=Cluster0")
   .then(() => console.log("✅ MongoDB Atlas se connect ho gaya!"))
   .catch(err => console.error("❌ Connection Error:", err));
 
