@@ -13,7 +13,7 @@ function Tickets() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("/api/tickets", {
+      const res = await fetch("https://zoo-qnls.onrender.com/api/tickets", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
