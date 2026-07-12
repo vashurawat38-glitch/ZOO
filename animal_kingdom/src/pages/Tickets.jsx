@@ -34,7 +34,7 @@ function Tickets() {
 
   const fetchTickets = async () => {
     try {
-      const res = await fetch("https://zoo-qnls.onrender.com");
+      const res = await fetch("https://zoo-qnls.onrender.com/api/tickets");
       if (!res.ok) throw new Error("Server error while fetching tickets");
 
       const data = await res.json();
