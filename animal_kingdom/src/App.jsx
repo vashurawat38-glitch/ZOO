@@ -8,6 +8,7 @@ import Tickets from "./pages/Tickets";
 import Contact from "./pages/Contact";
 import Footer from "./pages/Footer"; 
 import Map from "./pages/Map";
+import Price from './pages/Price';
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
       <Testimonials />
       <Stats />
       <FAQ />
-      <Map />      
+      <Map /> 
+      <Price/>     
       <Tickets />
       <Contact />
       <Footer />
