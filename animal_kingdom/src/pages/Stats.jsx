@@ -6,13 +6,13 @@ function Stats() {
   ];
 
   return (
-    <section id="stats" className="p-12 bg-green-100 text-center">
-      <h2 className="text-4xl font-bold mb-8">Zoo Highlights 📊</h2>
-      <div className="flex justify-center space-x-12">
+    <section id="stats" className="p-4 md:p-12 bg-green-100 text-center">
+      <h2 className="text-3xl font-bold mb-8">Zoo Highlights 📊</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {stats.map((stat, index) => (
-          <div key={index} className="bg-white p-6 rounded-lg shadow w-40">
+          <div key={index} className="bg-white p-6 rounded-lg shadow-md w-full">
             <h3 className="text-2xl font-bold text-[#2FA084]">{stat.value}</h3>
-            <p className="text-gray-600">{stat.label}</p>
+            <p className="text- sm text-gray-600 mt-1">{stat.label}</p>
           </div>
         ))}
       </div>

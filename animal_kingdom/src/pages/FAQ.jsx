@@ -6,13 +6,13 @@ function FAQ() {
   ];
 
   return (
-    <section id="faq" className="p-12 bg-gray-50">
-      <h2 className="text-4xl font-bold mb-8 text-center">Frequently Asked Questions ❓</h2>
-      <div className="max-w-4xl mx-auto space-y-6">
+    <section id="faq" className="p-4 md:p-12 bg-gray-50">
+      <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions ❓</h2>
+      <div className="grid grid-cols-1 gap-6 px-4">
         {faqs.map((item, index) => (
           <div key={index} className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-            <h3 className="font-semibold text-[#2FA084]">{item.q}</h3>
-            <p className="text-gray-700 mt-2">{item.a}</p>
+            <h3 className="font-bold text-lg text-[#2FA084]">{item.q}</h3>
+            <p className="text-gray-600 mt-2 text-sm leading-relaxed">{item.a}</p>
           </div>
         ))}
       </div>
