@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Swal from 'sweetalert2';
 
 export default function Login({ onLoginSuccess }) {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -28,11 +29,16 @@ export default function Login({ onLoginSuccess }) {
       const data = await res.json();
 
       if (!res.ok) {
-        throw new Error(data.error || "Kuch error aagaya!");
+        throw new Error(data.error || "An error occured. Please try again.");
       }
 
       if (isSignUp) {
-        alert("Account successful ban gaya! Ab login karein.");
+        Swal.fire({
+            title: 'Success!',
+            text: 'Account created successfully! Please log in.',
+            icon: 'Success',
+            confirmButtonText: 'OK'
+        });
         setIsSignUp(false);
         setFormData({ name: "", email: "", password: "" });
       } else {

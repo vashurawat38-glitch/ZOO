@@ -38,13 +38,13 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Top Welcome Bar */}
-      <div className="bg-emerald-900 text-white px-6 py-2 flex justify-between items-center text-sm shadow-md sticky top-0 z-50">
+      <div className="bg-gradient-to-r from-green-100 to-green-200 text-black px-6 py-2 flex justify-between items-center text-sm shadow-md sticky top-0 z-50">
         <span className="font-medium">
           Welcome, <strong className="text-emerald-300">{user.name || user.email}</strong>! 🦁
         </span>
         <button 
           onClick={handleLogout}
-          className="bg-red-500 hover:bg-red-600 text-white px-4 py-1.5 rounded-xl text-xs font-bold transition-all shadow"
+          className="bg-[#1F6F5F] hover:bg-red-600 text-white px-4 py-1.5 rounded-xl text-xs font-bold transition-all shadow"
         >
           Logout
         </button>
