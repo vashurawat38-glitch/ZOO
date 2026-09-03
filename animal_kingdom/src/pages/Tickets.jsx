@@ -90,8 +90,7 @@ function Tickets() {
           />
           <button
             type="submit"
-            className="bg-[#1F6F5F] text-white px-4 py-2 rounded w-full"
-          >
+            className="bg-emerald-700 hover:bg-[#105544] text-white px-4 py-2 rounded w-full"> 
             Book Now
           </button>
         </form>

@@ -14,7 +14,7 @@ function Testimonials() {
         {reviews.map((review, index) => (
           <div key={index} className="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition">
             <p className="text-[#2FA084] italic">"{review.text}"</p>
-            <h4 className="mt-4 font-semibold text-[#1F6F5F]">- {review.name}</h4>
+            <h4 className="mt-4 font-semibold text-emerald-700">- {review.name}</h4>
           </div>
         ))}
       </div>

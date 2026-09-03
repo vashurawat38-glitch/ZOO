@@ -28,13 +28,13 @@ app.post("/api/auth/register", async (req, res) => {
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
-      return res.status(400).json({ error: "Ye email pehle se registered hai!" });
+      return res.status(400).json({ error: "email already exists!" });
     }
 
     const newUser = new User({ name, email, password });
     await newUser.save();
 
-    res.json({ message: "Account ban gaya! Ab login karein." });
+    res.json({ message: "Account crreated successfully! Please log in." });
   } catch (err) {
     console.error("❌ Registration Error:", err);
     res.status(500).json({ error: "Server error during registration" });
@@ -48,7 +48,7 @@ app.post("/api/auth/login", async (req, res) => {
 
     const user = await User.findOne({ email, password });
     if (!user) {
-      return res.status(400).json({ error: "Galat Email ya Password!" });
+      return res.status(400).json({ error: "invalid email or password!" });
     }
 
     res.json({ 

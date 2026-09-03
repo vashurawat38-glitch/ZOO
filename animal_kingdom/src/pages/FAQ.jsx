@@ -11,7 +11,7 @@ function FAQ() {
       <div className="grid grid-cols-1 gap-6 px-4">
         {faqs.map((item, index) => (
           <div key={index} className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
-            <h3 className="font-bold text-lg text-[#2FA084]">{item.q}</h3>
+            <h3 className="font-bold text-lg text-emerald-700">{item.q}</h3>
             <p className="text-gray-600 mt-2 text-sm leading-relaxed">{item.a}</p>
           </div>
         ))}

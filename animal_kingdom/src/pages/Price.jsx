@@ -8,7 +8,7 @@ function Price() {
         
         <div className="overflow-x-auto">
           <table className="w-full bg-white shadow-md rounded-lg overflow-hidden">
-            <thead className="bg-[#1F6F5F] text-white">
+            <thead className="bg-emerald-700 text-white">
               <tr>
                 <th className="p-4 text-left">Visitor Type</th>
                 <th className="p-4 text-center">Price (INR)</th>

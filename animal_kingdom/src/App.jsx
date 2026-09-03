@@ -20,7 +20,11 @@ export default function App() {
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
     if (savedUser) {
-      setUser(JSON.parse(savedUser));
+      try {
+        setUser(JSON.parse(savedUser));
+      } catch (e) {
+        setUser(savedUser);
+      }
     }
   }, []);
 
@@ -37,27 +41,14 @@ export default function App() {
   // Login hone ke baad Main Website
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Top Welcome Bar */}
-      <div className="bg-gradient-to-r from-green-100 to-green-200 text-black px-6 py-2 flex justify-between items-center text-sm shadow-md sticky top-0 z-50">
-        <span className="font-medium">
-          Welcome, <strong className="text-emerald-300">{user.name || user.email}</strong>! 🦁
-        </span>
-        <button 
-          onClick={handleLogout}
-          className="bg-[#1F6F5F] hover:bg-red-600 text-white px-4 py-1.5 rounded-xl text-xs font-bold transition-all shadow"
-        >
-          Logout
-        </button>
-      </div>
-
-      {/* Navbar Component */}
-      <Navbar />
+      {/* Navbar Component ko props pass karein */}
+      <Navbar user={user} handleLogout={handleLogout} />
 
       {/* Main Website Sections */}
       <main>
         <Home />
         <Animals />
-         <Map />
+        <Map />
         <Stats />
         <FAQ />
         <Testimonials />
