@@ -46,7 +46,16 @@ export default function App() {
       <main>
         <Home />
         <Animals />
+        <Map />
+        <Stats />
+        <Testimonials />
+        <FAQ />
+        <Map />
+        <Price/>
         <Tickets />
+        <Contact />
+        <Footer/>
+
       </main>
     </div>
   );
