@@ -57,10 +57,10 @@ export default function App() {
       <main>
         <Home />
         <Animals />
+         <Map />
         <Stats />
-        <Testimonials />
-        <Map />
         <FAQ />
+        <Testimonials />
         <Price />
         <Tickets />
         <Contact />

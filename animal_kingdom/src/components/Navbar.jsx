@@ -11,7 +11,6 @@ function Navbar() {
     <div className="flex gap-4 text-sm">
       <a href="#home" className="hover:text-yellow-300">Home</a>
       <a href="#animals" className="hover:text-yellow-300">Animals</a>
-      <a href="#interactive-map" className="hover:text-yellow-300">Interactive Map</a>
       <a href="#tickets" className="hover:text-yellow-300">Tickets</a>
       <a href="#contact" className="hover:text-yellow-300">Contact</a>
     </div>
