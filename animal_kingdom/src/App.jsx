@@ -16,6 +16,7 @@ import Login from "./pages/Login";
 
 export default function App() {
   const [user, setUser] = useState(null);
+  const[ticketCount, setTicketCount] = useState(0);
 
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
@@ -42,7 +43,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Navbar Component ko props pass karein */}
-      <Navbar user={user} handleLogout={handleLogout} />
+      <Navbar user={user} handleLogout={handleLogout} ticketCount={ticketCount} />
 
       {/* Main Website Sections */}
       <main>
@@ -53,7 +54,7 @@ export default function App() {
         <FAQ />
         <Testimonials />
         <Price />
-        <Tickets />
+        <Tickets setTicketCount={setTicketCount} />
         <Contact />
         <Footer />
       </main>
