@@ -127,7 +127,7 @@ function Tickets({ setTicketCount }) {
 
           {/* Adults Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">Adults (12+ years) - ₹150</label>
+            <label className="block text-sm font-medium text-gray-700">Adults (18+ years) </label>
             <input
               type="number"
               name="adults"
@@ -140,7 +140,7 @@ function Tickets({ setTicketCount }) {
 
           {/* Children Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">Children (5-12 years) - ₹50</label>
+            <label className="block text-sm font-medium text-gray-700">Children (5-17 years) </label>
             <input
               type="number"
               name="children"
@@ -153,7 +153,7 @@ function Tickets({ setTicketCount }) {
 
           {/* Senior Citizens Input */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">Senior Citizens - ₹100</label>
+            <label className="block text-sm font-medium text-gray-700">Senior Citizens </label>
             <input
               type="number"
               name="seniors"
