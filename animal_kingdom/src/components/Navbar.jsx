@@ -41,7 +41,7 @@ export default function Navbar({ user, handleLogout, ticketCount = 0 }) {
 
   return (
     <>
-      <nav className="bg-emerald-700 border-gray-200 sticky top-0 z-40 shadow-sm w-full">
+      <nav className="bg-emerald-700 border-gray-200 sticky top-0 z-40 shadow-sm w-full text-xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-30 items-center">
             

@@ -16,11 +16,11 @@ function Price() {
             </thead>
             <tbody className="divide-y divide-gray-200">
               <tr>
-                <td className="p-4">Adults (12+ years)</td>
+                <td className="p-4">Adults (18+ years)</td>
                 <td className="p-4 text-center">₹150</td>
               </tr>
               <tr>
-                <td className="p-4">Children (5-12 years)</td>
+                <td className="p-4">Children (5-17 years)</td>
                 <td className="p-4 text-center">₹50</td>
               </tr>
               <tr>

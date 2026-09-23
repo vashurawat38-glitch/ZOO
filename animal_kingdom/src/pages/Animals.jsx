@@ -26,6 +26,11 @@ function Animals() {
             <p className="text-gray-700 mt-3 text-sm leading-relaxed text-justify">{animal.description}</p>
           </div>
         ))}
+
+        {/* ✅ Extra Placeholder Card */}
+        <div className="bg-gray-100 rounded-lg shadow p-3 flex flex-col items-center justify-center text-center hover:bg-gray-300 transition">
+          <p className="mt-2 text-lg font-medium text-black">Visit zoo to see more species....</p>
+        </div>
       </div>
     </section>
   );

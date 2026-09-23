@@ -182,3 +182,9 @@
     border-right-color: var(--border);
   }
 }
+@font-face {
+  font-family:matcha;
+  src: url('./assets/matcha_home.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

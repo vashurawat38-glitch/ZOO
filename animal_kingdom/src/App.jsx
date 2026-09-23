@@ -14,9 +14,14 @@ import Contact from "./pages/Contact";
 import Footer from "./pages/Footer";
 import Login from "./pages/Login";
 
+// ✅ New Imports for Chat Popup
+import ChatButton from "./components/ChatButton";
+import ChatWindow from "./components/ChatWindow";
+
 export default function App() {
   const [user, setUser] = useState(null);
-  const[ticketCount, setTicketCount] = useState(0);
+  const [ticketCount, setTicketCount] = useState(0);
+  const [open, setOpen] = useState(false); // ✅ Chat popup toggle state
 
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
@@ -58,6 +63,10 @@ export default function App() {
         <Contact />
         <Footer />
       </main>
+
+      {/* ✅ Responsive Chat Popup */}
+      {open && <ChatWindow onClose={() => setOpen(false)} />}
+      <ChatButton onClick={() => setOpen(true)} />
     </div>
   );
 }
