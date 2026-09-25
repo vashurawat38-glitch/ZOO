@@ -75,6 +75,32 @@ async function startApp() {
       }
     });
 
+    // ================= CHATBOT ROUTE =================
+
+    app.post("/api/chatbot", (req, res) => {
+      try {
+        const { message } = req.body;
+        const userMsg = (message || "").toLowerCase();
+
+        let reply = "👋 Hi! How can I help you with your Zoo visit today?";
+
+        if (userMsg.includes("ticket") || userMsg.includes("price") || userMsg.includes("book")) {
+          reply = "🎟️ You can easily book tickets from our Tickets section on the website or directly at the Zoo entrance!";
+        } else if (userMsg.includes("time") || userMsg.includes("timing") || userMsg.includes("open")) {
+          reply = "⏰ The zoo is open daily from 9:00 AM to 6:00 PM.";
+        } else if (userMsg.includes("location") || userMsg.includes("where") || userMsg.includes("address")) {
+          reply = "📍 Animal Kingdom Zoo is located in the central park region with full parking facilities.";
+        } else if (userMsg.includes("animal") || userMsg.includes("lion") || userMsg.includes("tiger") || userMsg.includes("ranger")) {
+          reply = "🦁 We have lions, tigers, giraffes, elephants, and our special Junior Zoo Ranger program!";
+        }
+
+        res.json({ reply });
+      } catch (err) {
+        console.error("❌ Chatbot Error:", err);
+        res.status(500).json({ reply: "❌ Sorry, I had trouble processing that request." });
+      }
+    });
+
     // ================= JUNIOR ZOO RANGER ROUTE =================
 
     const handleRangerEnroll = async (req, res) => {
@@ -104,9 +130,10 @@ async function startApp() {
     app.post("/api/ranger/enroll", handleRangerEnroll);
     app.post("/api/rangers", handleRangerEnroll);
 
-    // Listen only after DB connection and routes are completely set up
-    app.listen(5000, () => {
-      console.log("🚀 Server running on port 5000");
+    // Dynamic port assignment for production deployments
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running on port ${PORT}`);
     });
 
   } catch (err) {
