@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination":"http://zoo-qnls.onrender.com/api/$1"
-    }
-  ]
-}
