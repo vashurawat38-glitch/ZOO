@@ -16,3 +16,19 @@ html, body {
   padding: 0;
   width: 100%;
 }
+@import "tailwindcss";
+
+/* Google Font Definition */
+@theme {
+  --font-sans: 'Outfit', sans-serif;
+  --font-heading: 'Fredoka', sans-serif;
+}
+
+/* Base Font Enforce */
+body {
+  font-family: 'Outfit', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Fredoka', sans-serif;
+}
