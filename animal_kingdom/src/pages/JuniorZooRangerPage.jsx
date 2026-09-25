@@ -1,48 +1,45 @@
-Import React, { useState } from "react";
+import React, { useState } from "react";
 
-Export default function JuniorZooRangerPage({ onBack }) {
-  Const [formData, setFormData] = useState({ studentName: "", schoolName: "", email: "" });
-  Const [loading, setLoading] = useState(false);
-  Const [certificate, setCertificate] = useState(null);
+export default function JuniorZooRangerPage({ onBack }) {
+  const [formData, setFormData] = useState({ studentName: "", schoolName: "", email: "" });
+  const [loading, setLoading] = useState(false);
+  const [certificate, setCertificate] = useState(null);
 
-  Const handleSubmit = async (e) => {
-    E.preventDefault();
-    SetLoading(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
 
-    Try {
-      // FIXED: http:// -> https://
-      Const response = await fetch("https://zoo-qnls.onrender.com/api/ranger/enroll", {
-        Method: "POST",
-        Headers: { "Content-Type": "application/json" },
-        Body: JSON.stringify(formData),
+    try {
+      // ✅ Pure HTTPS endpoint to prevent Mixed Content blocking
+      const response = await fetch("https://zoo-qnls.onrender.com/api/ranger/enroll", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
       });
 
-      Const result = await response.json();
+      const result = await response.json();
       
-      If (response.ok && result.success) {
-        // ✅ DB me save hone par hi certificate set hoga
-        SetCertificate(result.data);
+      if (response.ok && result.success) {
+        setCertificate(result.data);
       } else {
-        // ❌ Agar backend error de
-        Alert("❌ Error: " + (result.message || result.error || "Failed to generate pass"));
+        alert("❌ Error: " + (result.message || result.error || "Failed to generate pass"));
       }
     } catch (error) {
-      Console.error("Backend Error:", error);
-      // Cleaned up generic message
-      Alert("❌ Server is waking up or unreachable. Please wait 30 seconds and try again!");
+      console.error("Backend Error:", error);
+      alert("❌ Render server is taking time to wake up! Please wait 20 seconds and try submitting again.");
     } finally {
-      SetLoading(false);
+      setLoading(false);
     }
   };
 
-  Return (
+  return (
     <div className="min-h-screen bg-emerald-950 text-white py-12 px-4">
       <div className="max-w-4xl mx-auto space-y-8">
         
         {/* Back Button */}
         <button
-          OnClick={onBack}
-          ClassName="inline-flex items-center gap-2 bg-emerald-900 hover:bg-emerald-800 text-amber-300 font-bold text-sm px-5 py-2.5 rounded-xl border border-emerald-700 transition cursor-pointer shadow-lg"
+          onClick={onBack}
+          className="inline-flex items-center gap-2 bg-emerald-900 hover:bg-emerald-800 text-amber-300 font-bold text-sm px-5 py-2.5 rounded-xl border border-emerald-700 transition cursor-pointer shadow-lg"
         >
           ← Back to Main Website
         </button>
@@ -63,20 +60,20 @@ Export default function JuniorZooRangerPage({ onBack }) {
         {!certificate ? (
           /* Enrollment Form */
           <form
-            OnSubmit={handleSubmit}
-            ClassName="bg-emerald-900/40 border border-emerald-500/20 p-6 sm:p-10 rounded-3xl space-y-5 max-w-lg mx-auto shadow-2xl backdrop-blur-md"
+            onSubmit={handleSubmit}
+            className="bg-emerald-900/40 border border-emerald-500/20 p-6 sm:p-10 rounded-3xl space-y-5 max-w-lg mx-auto shadow-2xl backdrop-blur-md"
           >
             <div>
               <label className="block text-xs font-bold uppercase mb-1.5 text-emerald-200">
                 Student Full Name
               </label>
               <input
-                Type="text"
-                Required
-                Placeholder="e.g. Ananya Sharma"
-                Value={formData.studentName}
-                OnChange={(e) => setFormData({ ...formData, studentName: e.target.value })}
-                ClassName="w-full bg-emerald-950 border border-emerald-700 rounded-xl p-3.5 text-white focus:outline-none focus:border-amber-400 text-sm transition"
+                type="text"
+                required
+                placeholder="e.g. Ananya Sharma"
+                value={formData.studentName}
+                onChange={(e) => setFormData({ ...formData, studentName: e.target.value })}
+                className="w-full bg-emerald-950 border border-emerald-700 rounded-xl p-3.5 text-white focus:outline-none focus:border-amber-400 text-sm transition"
               />
             </div>
 
@@ -85,12 +82,12 @@ Export default function JuniorZooRangerPage({ onBack }) {
                 School / College Name
               </label>
               <input
-                Type="text"
-                Required
-                Placeholder="e.g. Delhi Public School"
-                Value={formData.schoolName}
-                OnChange={(e) => setFormData({ ...formData, schoolName: e.target.value })}
-                ClassName="w-full bg-emerald-950 border border-emerald-700 rounded-xl p-3.5 text-white focus:outline-none focus:border-amber-400 text-sm transition"
+                type="text"
+                required
+                placeholder="e.g. Delhi Public School"
+                value={formData.schoolName}
+                onChange={(e) => setFormData({ ...formData, schoolName: e.target.value })}
+                className="w-full bg-emerald-950 border border-emerald-700 rounded-xl p-3.5 text-white focus:outline-none focus:border-amber-400 text-sm transition"
               />
             </div>
 
@@ -99,19 +96,19 @@ Export default function JuniorZooRangerPage({ onBack }) {
                 Email Address
               </label>
               <input
-                Type="email"
-                Required
-                Placeholder="student@example.com"
-                Value={formData.email}
-                OnChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                ClassName="w-full bg-emerald-950 border border-emerald-700 rounded-xl p-3.5 text-white focus:outline-none focus:border-amber-400 text-sm transition"
+                type="email"
+                required
+                placeholder="student@example.com"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="w-full bg-emerald-950 border border-emerald-700 rounded-xl p-3.5 text-white focus:outline-none focus:border-amber-400 text-sm transition"
               />
             </div>
 
             <button
-              Type="submit"
-              Disabled={loading}
-              ClassName="w-full bg-amber-500 hover:bg-amber-400 text-black font-extrabold py-4 rounded-xl transition cursor-pointer flex items-center justify-center gap-2 text-base shadow-lg mt-2"
+              type="submit"
+              disabled={loading}
+              className="w-full bg-amber-500 hover:bg-amber-400 text-black font-extrabold py-4 rounded-xl transition cursor-pointer flex items-center justify-center gap-2 text-base shadow-lg mt-2"
             >
               {loading ? "Generating..." : "Generate Digital Ranger Pass 📜"}
             </button>
@@ -169,8 +166,8 @@ Export default function JuniorZooRangerPage({ onBack }) {
 
             <div className="text-center">
               <button
-                OnClick={() => setCertificate(null)}
-                ClassName="text-xs text-amber-400 hover:underline font-bold cursor-pointer"
+                onClick={() => setCertificate(null)}
+                className="text-xs text-amber-400 hover:underline font-bold cursor-pointer"
               >
                 ← Issue Another Ranger Pass
               </button>
